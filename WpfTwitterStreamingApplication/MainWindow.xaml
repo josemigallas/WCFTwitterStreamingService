@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfTwitterStreamingApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTwitterStreamingApplication"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="350"
+        Width="525">
+    
+    <Grid>
+        <TextBox x:Name="FiltersTextBox"
+                 Height="23"
+                 Margin="10,10,170,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"/>
+
+        <Button x:Name="StartStreamingButton"
+                Content="Start"
+                Margin="0,10,90,0"
+                VerticalAlignment="Top"
+                Height="23"
+                Click="StartStreamingButton_Click"
+                HorizontalAlignment="Right"
+                Width="75"/>
+
+        <Button x:Name="StopStreamingButton"
+                Content="Stop"
+                Margin="0,10,10,0"
+                VerticalAlignment="Top"
+                Height="23"
+                Click="StopStreamingButton_Click"
+                HorizontalAlignment="Right"
+                Width="75"
+                Visibility="Hidden"/>
+
+        <ScrollViewer Margin="10,38,10,10">
+            <TextBlock x:Name="TweetTextBlock"
+                       Background="Azure"
+                       TextWrapping="Wrap"/>
+        </ScrollViewer>
+    </Grid>
+</Window>

@@ -1,0 +1,269 @@
+﻿<?xml version="1.0"
+      encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+                  xmlns:wsa10="http://www.w3.org/2005/08/addressing"
+                  xmlns:tns="http://tempuri.org/"
+                  xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+                  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+                  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+                  xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+                  xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+                  xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+                  xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  name="WcfService"
+                  targetNamespace="http://tempuri.org/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetHttpBinding_IWcfService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1"/>
+        <wsaw:UsingAddressing/>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/"/>
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IWcfService_GetStreaming_InputMessage">
+    <wsdl:part name="parameters"
+               element="tns:GetStreaming"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_GetStreaming_OutputMessage">
+    <wsdl:part name="parameters"
+               element="tns:GetStreamingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_PauseStreaming_InputMessage">
+    <wsdl:part name="parameters"
+               element="tns:PauseStreaming"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_PauseStreaming_OutputMessage">
+    <wsdl:part name="parameters"
+               element="tns:PauseStreamingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_ResumeStreaming_InputMessage">
+    <wsdl:part name="parameters"
+               element="tns:ResumeStreaming"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_ResumeStreaming_OutputMessage">
+    <wsdl:part name="parameters"
+               element="tns:ResumeStreamingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StopStreaming_InputMessage">
+    <wsdl:part name="parameters"
+               element="tns:StopStreaming"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StopStreaming_OutputMessage">
+    <wsdl:part name="parameters"
+               element="tns:StopStreamingResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_PrintMessage_OutputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:PrintMessage"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_PrintMessage_InputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:PrintMessageResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StreamStarted_OutputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:StreamStarted"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StreamStarted_InputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:StreamStartedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StreamPaused_OutputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:StreamPaused"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StreamPaused_InputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:StreamPausedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StreamResumed_OutputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:StreamResumed"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StreamResumed_InputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:StreamResumedResponse"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StreamStopped_OutputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:StreamStopped"/>
+  </wsdl:message>
+  <wsdl:message name="IWcfService_StreamStopped_InputCallbackMessage">
+    <wsdl:part name="parameters"
+               element="tns:StreamStoppedResponse"/>
+  </wsdl:message>
+  <wsdl:portType name="IWcfService">
+    <wsdl:operation name="GetStreaming">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetStreaming"
+                  message="tns:IWcfService_GetStreaming_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetStreamingResponse"
+                   message="tns:IWcfService_GetStreaming_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="PauseStreaming">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/PauseStreaming"
+                  message="tns:IWcfService_PauseStreaming_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/PauseStreamingResponse"
+                   message="tns:IWcfService_PauseStreaming_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="ResumeStreaming">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/ResumeStreaming"
+                  message="tns:IWcfService_ResumeStreaming_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/ResumeStreamingResponse"
+                   message="tns:IWcfService_ResumeStreaming_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="StopStreaming">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/StopStreaming"
+                  message="tns:IWcfService_StopStreaming_InputMessage"/>
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/StopStreamingResponse"
+                   message="tns:IWcfService_StopStreaming_OutputMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="PrintMessage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/PrintMessage"
+                   message="tns:IWcfService_PrintMessage_OutputCallbackMessage"/>
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/PrintMessageResponse"
+                  message="tns:IWcfService_PrintMessage_InputCallbackMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="StreamStarted">
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/StreamStarted"
+                   message="tns:IWcfService_StreamStarted_OutputCallbackMessage"/>
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/StreamStartedResponse"
+                  message="tns:IWcfService_StreamStarted_InputCallbackMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="StreamPaused">
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/StreamPaused"
+                   message="tns:IWcfService_StreamPaused_OutputCallbackMessage"/>
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/StreamPausedResponse"
+                  message="tns:IWcfService_StreamPaused_InputCallbackMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="StreamResumed">
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/StreamResumed"
+                   message="tns:IWcfService_StreamResumed_OutputCallbackMessage"/>
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/StreamResumedResponse"
+                  message="tns:IWcfService_StreamResumed_InputCallbackMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="StreamStopped">
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/StreamStopped"
+                   message="tns:IWcfService_StreamStopped_OutputCallbackMessage"/>
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/StreamStoppedResponse"
+                  message="tns:IWcfService_StreamStopped_InputCallbackMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetHttpBinding_IWcfService"
+                type="tns:IWcfService">
+    <wsp:PolicyReference URI="#NetHttpBinding_IWcfService_policy"/>
+    <soap12:binding transport="http://schemas.microsoft.com/soap/websocket"/>
+    <wsdl:operation name="GetStreaming">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/GetStreaming"
+                        style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PauseStreaming">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/PauseStreaming"
+                        style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResumeStreaming">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/ResumeStreaming"
+                        style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopStreaming">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/StopStreaming"
+                        style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PrintMessage">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/PrintMessage"
+                        style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StreamStarted">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/StreamStarted"
+                        style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StreamPaused">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/StreamPaused"
+                        style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StreamResumed">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/StreamResumed"
+                        style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StreamStopped">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/StreamStopped"
+                        style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WcfService">
+    <wsdl:port name="NetHttpBinding_IWcfService"
+               binding="tns:NetHttpBinding_IWcfService">
+      <soap12:address location="ws://localhost:8733/Design_Time_Addresses/WcfTwitterStreamingServiceLibrary/Service1/"/>
+      <wsa10:EndpointReference>
+        <wsa10:Address>ws://localhost:8733/Design_Time_Addresses/WcfTwitterStreamingServiceLibrary/Service1/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>localhost</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
